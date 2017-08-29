@@ -1,14 +1,14 @@
 const discord = require('discord.js');
-const commando = require('discord.js-commando');
+//const commando = require('discord.js-commando');
 const bot = new discord.Client();
-const sql = require('sqlite');
+//const sql = require('sqlite');
 /*bot.registry.registerGroup('random', 'Random');
 bot.registry.registerGroup('upvote', 'Upvote');
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + "/commands");
 */
-sql.open('./score.sqlite');
-sql.open('./karma.sqlite');
+//sql.open('./score.sqlite');
+//sql.open('./karma.sqlite');
 const prefix = '.';
 
 
@@ -22,7 +22,7 @@ bot.on('ready', () => {
 
 
 
-bot.on('messageReactionAdd',(messageReaction) =>{
+/**bot.on('messageReactionAdd',(messageReaction) =>{
 	console.log(messageReaction.users.author);
 	console.log(messageReaction.message.author)
 	if (messageReaction.emoji.id == '296219856829808641' ){
@@ -41,7 +41,7 @@ bot.on('messageReactionAdd',(messageReaction) =>{
 			})
 		}
 	};	
-});
+}); **/
 
 
 
@@ -144,13 +144,13 @@ bot.on('message',(message) => {
 			if (!row) return message.reply('sadly you do not have any points yet!');
 			message.reply(`you currently have ${row.points} points!`);
 		});
-	} else */
+	} else 
 	if (message.content.startsWith(prefix + 'karma')){
 		sql.get(`SELECT * FROM karma WHERE userId = '${message.author.id}'`).then(row =>{
 			if (!row) return message.reply("You have no karma yet");
 			message.reply(`you currently have ${row.karma} karma`);
 		});
-	}
+	}*/
 
 	if (message.content.startsWith(prefix + '4d')){
 		var val = Math.floor(1000 + Math.random() * 9000);
