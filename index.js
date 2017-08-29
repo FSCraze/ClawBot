@@ -10,7 +10,7 @@ bot.registry.registerCommandsIn(__dirname + "/commands");
 //sql.open('./score.sqlite');
 //sql.open('./karma.sqlite');
 const prefix = '.';
-
+var config = require("./config.json");
 
 
 bot.on('ready', () => {
@@ -46,15 +46,12 @@ bot.on('ready', () => {
 
 
 bot.on('message',(message) => {
-	function waifu(){
-		if(!message.author.bot){
-			if (message.content.includes("best") && message.content.includes("waifu")){
-				message.reply('__**Emilia**__ is best waifu!')
-			}
-		}
-	} 
-	waifu()
-})
+    if(!message.author.bot){
+        if (message.content.includes("best") && message.content.includes("waifu")){
+            message.reply('__**Emilia**__ is best waifu!')
+        }
+    }
+});
 
 bot.on('message',(message) => {
 
@@ -158,5 +155,7 @@ bot.on('message',(message) => {
 		;
 	}
 });
-bot.login('Mjk3MDE2NjI0MTIzMzQ2OTU1.C76qYQ.SQWpFlOBDSKZ3P3dfYg7pVumzg8');
+
+
+bot.login(config.admin.token);
 //client ID = 297016624123346955
