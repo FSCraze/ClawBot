@@ -7,7 +7,7 @@ var config = require("./config.json");
 //set nickname and presence
 bot.on('ready', () => {
 	bot.user.setUsername('EmiliaBot')
-	bot.user.setPresence({ game: { name: 'with Hito-chan', type: 0 } });
+	bot.user.setPresence({ game: { name: 'with Hito-chan 💗', type: 0 } });
 }); 
 
 
@@ -18,22 +18,23 @@ bot.on('ready', () => {
 bot.on('message',(message) => {
 	if(!message.author.bot){
 		if (message.content.includes("best") && message.content.includes("waifu")){
-			message.reply('__**Emilia**__ is best waifu!')
+			message.channel.send('__**Emilia**__ is best waifu!')
 		}
 		if (message.content.startsWith(prefix + "dailyreminder")){
-			message.reply('http://i.imgur.com/3Qw331q.png')
+			message.channel.send('http://i.imgur.com/3Qw331q.png')
 		}
 		if (message.content.startsWith(prefix + "no")){
-			message.reply('https://imgur.com/9CttBYT')
+			message.channel.send('https://imgur.com/9CttBYT')
 		}
 		if (message.content.startsWith(prefix + "sagireee")){
-			message.reply('https://imgur.com/6eoGHpP')
+			message.channel.send('https://imgur.com/6eoGHpP')
 		}
 		if (message.content.startsWith(prefix + "emote")){
 			var emojiName = message.content.substr(message.content.indexOf(":") +1)
 			emojiName = emojiName.substr(emojiName.indexOf(':') + 1); 
 			emojiName = emojiName.substr(0, emojiName.indexOf('>')); 
-			message.channel.send('', {
+			var author = message.author.username;
+			message.channel.send(author + ": "+ '', {
 				file: `https://cdn.discordapp.com/emojis/${emojiName}.png`
 			});
 			message.delete();
