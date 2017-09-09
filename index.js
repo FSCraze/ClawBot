@@ -12,9 +12,6 @@ bot.on('ready', () => {
 
 
 
-
-
-
 bot.on('message',(message) => {
 	if(!message.author.bot){
 		if (message.content.includes("best") && message.content.includes("waifu")){
@@ -22,12 +19,40 @@ bot.on('message',(message) => {
 		}
 		if (message.content.startsWith(prefix + "dailyreminder")){
 			message.channel.send('http://i.imgur.com/3Qw331q.png')
+			message.delete();
+
 		}
 		if (message.content.startsWith(prefix + "no")){
 			message.channel.send('https://imgur.com/9CttBYT')
+			message.delete();
+
 		}
 		if (message.content.startsWith(prefix + "sagireee")){
 			message.channel.send('https://imgur.com/6eoGHpP')
+			message.delete();
+
+		}
+			if (message.content.startsWith(prefix + "happydance")){
+			message.channel.send( '', {
+				file: `https://cdn.discordapp.com/attachments/280009528966250498/355924324479139840/tumblr_mgsfx75YKo1rf785do1_500.gif`
+			});
+			message.delete();
+
+		}
+
+		if (message.content.startsWith(prefix + "woop1")){
+			message.channel.send( '', {
+				file: `https://cdn.discordapp.com/attachments/280009528966250498/355922606735491073/rika.gif`
+			});
+			message.delete();
+
+		}
+			if (message.content.startsWith(prefix + "woop2")){
+			message.channel.send( '', {
+				file: `https://cdn.discordapp.com/attachments/280009528966250498/355922579351142400/Us7qZ.gif`
+			});
+			message.delete();
+
 		}
 		if (message.content.startsWith(prefix + "emote")){
 			var emojiName = message.content.substr(message.content.indexOf(":") +1)
