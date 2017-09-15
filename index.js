@@ -4,10 +4,14 @@ const prefix = '!';
 var config = require("./config.json");
 
 
+
+
+
+
 //set nickname and presence
 bot.on('ready', () => {
-	bot.user.setUsername('EmiliaBot')
-	bot.user.setPresence({ game: { name: 'with Hito-chan 💗', type: 0 } });
+	bot.user.setUsername('Emilia')
+	!stbot.user.setPresence({ game: { name: 'with Hito-chan 💕', type: 0 } });
 }); 
 
 
@@ -32,25 +36,20 @@ bot.on('message',(message) => {
 			message.delete();
 
 		}
-			if (message.content.startsWith(prefix + "happydance")){
-			message.channel.send( '', {
-				file: `https://cdn.discordapp.com/attachments/280009528966250498/355924324479139840/tumblr_mgsfx75YKo1rf785do1_500.gif`
-			});
+		if (message.content.startsWith(prefix + "happydance")){
+			message.channel.send('https://cdn.discordapp.com/attachments/280009528966250498/355924324479139840/tumblr_mgsfx75YKo1rf785do1_500.gif')
 			message.delete();
 
 		}
 
 		if (message.content.startsWith(prefix + "woop1")){
-			message.channel.send( '', {
-				file: `https://cdn.discordapp.com/attachments/280009528966250498/355922606735491073/rika.gif`
-			});
+			message.channel.send('https://cdn.discordapp.com/attachments/280009528966250498/355922606735491073/rika.gif')
 			message.delete();
 
 		}
-			if (message.content.startsWith(prefix + "woop2")){
-			message.channel.send( '', {
-				file: `https://cdn.discordapp.com/attachments/280009528966250498/355922579351142400/Us7qZ.gif`
-			});
+		if (message.content.startsWith(prefix + "woop2")){
+			message.channel.send('https://cdn.discordapp.com/attachments/280009528966250498/355922579351142400/Us7qZ.gif')
+
 			message.delete();
 
 		}
@@ -65,7 +64,17 @@ bot.on('message',(message) => {
 			message.delete();
 
 		}
-		
+
+		if(message.author==bot.users.get("187512116205453312") && message.content.startsWith(prefix + "status")){
+			var status = message.content.toString()
+			status = status.substring(7,status.length)
+			console.log(status)
+			bot.user.setPresence({ game: { name: status, type: 0 } });
+			//message.delete();
+		} 
+
+
+
 
 	/*var emojiName = msg.content.substr(msg.content.indexOf(':') + 1);
   emojiName = emojiName.substr(emojiName.indexOf(':') + 1); 
