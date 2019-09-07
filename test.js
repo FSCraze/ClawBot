@@ -1,20 +1,25 @@
 
 
-const fs = require('fs')
 const discord = require('discord.js');
 const bot = new discord.Client();
 const prefix = '!';
 var config = require("./config.json");
 
+var testCount = 10
 
+
+
+const fs = require('fs')
+fs.writeFile('Output.txt', testCount, (err) =>{
+	if (err) throw err;
+})
 
 //set nickname and presence
 bot.on('ready', () => {
 	bot.user.setUsername('ClawBot')
-	bot.user.setPresence({game: { name: 'The Claw is Law.', type: 0}})
+	bot.user.setPresence({game: { name: 'Claw is law', type: 0}})
 
 }); 
-
 
 
 
@@ -28,31 +33,17 @@ bot.on('message',(message) => {
 			bot.user.setPresence({ game: { name: status, type: 0 } });
 			//message.delete();
 		} 
-		
 		if(message.content.startsWith(prefix + "claw")){
-			 fs.readFile('Output.txt', 'utf-8', (err, data) => { 
-			    if (err) throw err; 
-			    clawData = data; 
-			    clawData++
-			    message.channel.send( clawData + 'th cold claw(s) cracked open with the bois')
-			    fs.writeFile('Output.txt', clawData, (err) =>{
-				if (err) throw err;
-			})
+			testCount++
+			//message.channel.send('https://i.pinimg.com/originals/fa/10/c0/fa10c0a43a7357659a5fc151591ad85c.png')
+			message.channel.send(testCount + 'th cold claw(s) cracked open with the bois')
 
-			   
-			}) ;
 
 		}
 
 		if(message.content.includes(prefix + "totalclaw")){
-			 fs.readFile('Output.txt', 'utf-8', (err, data) => { 
-			    if (err) throw err; 
-			    clawData = data; 
-				message.channel.send('Total of ' + clawData + ' cold claw(s) cracked open with the bois')
+			message.channel.send('Total of ' + testCount + ' cold claw(s) cracked open with the bois')
 
-
-			   
-			}) ;
 
 		}
 
